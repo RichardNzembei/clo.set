@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clo.set</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+   
 </head>
 <body>
     <!-- Header Section -->
@@ -13,28 +14,73 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="images/logo-color.png" alt="clo.set" width="125px" /></a>
+                    <a href="index.html"><img src="./images/logo-color.png" alt="clo.set" width="125px" /></a>
                 </div>
                 <nav>
                     <ul id="MenuItems">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="./pages/products.html">Products</a></li>
+                        <li><a href="./pages/gallery.html">Gallery</a></li>
+                      
                         <li><a href="account.html">Account</a></li>
                     </ul>
                 </nav>
-                <a href="cart.html"><img src="https://i.ibb.co/PNjjx3y/cart.png" alt="Cart" width="30px" height="30px" /></a>
+<!-- Cart button -->
+<button class="cart-btn" id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+
+<!-- Cart container (hidden by default) -->
+<div class="cart-container" id="cart-container">
+  <div class="cart-content">
+    <h1>Cart</h1>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Cart items will be displayed here -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3">Total:</th>
+          <th id="total-cost">$0.00</th>
+          <th>
+            <button class="checkout-btn">Checkout</button>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- Add a remove button to close the cart sidebar -->
+    <button class="remove-btn" id="remove-btn">×</button>
+  </div>
+</div>
+
+<script>
+  // Show cart container when cart button is clicked
+  document.getElementById("cart-btn").addEventListener("click", () => {
+    document.getElementById("cart-container").classList.toggle("show");
+  });
+
+  // Close cart container when remove button is clicked
+  document.getElementById("remove-btn").addEventListener("click", () => {
+    document.getElementById("cart-container").classList.remove("show");
+  });
+</script>
                 <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="Menu" class="menu-icon" onclick="menutoggle()" />
             </div>
             <div class="row">
                 <div class="col-2">
                     <h1>Elevate Your Style</h1>
                     <p>Discover unique designer clothes that blend art and fashion.</p>
-                    <a href="product.html" class="btn">Shop Now →</a>
+                    <a href="pages/products.html" class="btn">Shop Now →</a>
                 </div>
                 <div class="col-2">
-                    <img src="images/gallery/fade1.jpeg" alt="Fashion Image" />
+                    <img src="./images/gallery/fade1.jpeg" alt="Fashion Image" />
                 </div>
             </div>
         </div>
@@ -45,19 +91,19 @@
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
-                    <img src="images/tee.jpg" alt="T-Shirts" />
+                    <img src="./images/tee.jpg" alt="T-Shirts" />
                     <h3>T-Shirts</h3>
                 </div>
                 <div class="col-3">
-                    <img src="images/hooodie vision.jpg" alt="Hoodies" />
+                    <img src="./images/hooodie vision.jpg" alt="Hoodies" />
                     <h3>Hoodies</h3>
                 </div>
                 <div class="col-3">
-                    <img src="images/hat.jpg" alt="Hats" />
+                    <img src="./images/hat.jpg" alt="Hats" />
                     <h3>Hats</h3>
                 </div>
                 <div class="col-3">
-                    <img src="images/longsleeve.jpg" alt="Trousers" />
+                    <img src="./images/longsleeve.jpg" alt="Trousers" />
                     <h3>Trousers</h3>
                 </div>
             </div>
@@ -69,7 +115,7 @@
         <h2 class="title">Featured Products</h2>
         <div class="row">
             <div class="col-4">
-                <a href="product_details.html"><img src="images/summertides.jpg" alt="T-Shirt" /></a>
+                <a href="product_details.html"><img src="./images/summertides.jpg" alt="T-Shirt" /></a>
                 <a href="product_details.html"><h4>Designer T-Shirt</h4></a>
                 <div class="rating">
                     <i class="fas fa-star"></i>
@@ -78,10 +124,10 @@
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>₹500.00</p>
+                <p>ksh 1500</p>
             </div>
             <div class="col-4">
-                <a href="product_details.html"><img src="images/hooodie vision.jpg" alt="Hoodie" /></a>
+                <a href="product_details.html"><img src="./images/hooodie vision.jpg" alt="Hoodie" /></a>
                 <a href="product_details.html"><h4>Designer Hoodie</h4></a>
                 <div class="rating">
                     <i class="fas fa-star"></i>
@@ -90,10 +136,10 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>₹1500.00</p>
+                <p>ksh 3500.00</p>
             </div>
             <div class="col-4">
-                <a href="product_details.html"><img src="images/hat.jpg" alt="Hat" /></a>
+                <a href="product_details.html"><img src="./images/hat.jpg" alt="Hat" /></a>
                 <a href="product_details.html"><h4>Designer Hat</h4></a>
                 <div class="rating">
                     <i class="fas fa-star"></i>
@@ -102,10 +148,10 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p>₹700.00</p>
+                <p>ksh 700.00</p>
             </div>
             <div class="col-4">
-                <a href="product_details.html"><img src="images/longsleeve.jpg" alt="Trousers" /></a>
+                <a href="product_details.html"><img src="./images/longsleeve.jpg" alt="Trousers" /></a>
                 <a href="product_details.html"><h4>Designer Trousers</h4></a>
                 <div class="rating">
                     <i class="fas fa-star"></i>
@@ -114,7 +160,7 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>₹1200.00</p>
+                <p>ksh 1700.00</p>
             </div>
         </div>
     </div>
@@ -129,37 +175,7 @@
 
  
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                
-                <div class="footer-col-2">
-                    <img src="images/logo-color.png" alt="clo.set" />
-                    <p>Our purpose is to sustainably make the pleasure and benefits of designer clothes accessible to many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow us</h3>
-                    <ul>
-                        
-                        <li><a href="https://www.instagram.com/clo.set_r/">instagram</a></li>
-                     
-                    </ul>
-                </div>
-            </div>
-            <hr />
-            <p class="copyright">© 2023 clo.set</p>
-        </div>
-    </div>
+     
 
     <!-- JavaScript for Toggle Menu -->
     <script>

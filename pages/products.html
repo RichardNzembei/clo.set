@@ -1,0 +1,412 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="../index.css">
+ 
+    <style>
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 20px;
+        }
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: azure;
+        }
+
+        .products-page h1 {
+            color: rgb(62, 90, 90);
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .product-pricing {
+            margin-bottom: 20px;
+        }
+
+        .product-pricing p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #337ab7;
+        }
+
+        .product-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            margin-right: 20px;
+        }
+
+        .option label {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .option select,
+        .option input[type="number"] {
+            width: 100px;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .product-options p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html"><img src="../images/logo-color.png" alt="clo.set" width="125px" /></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./products.html">Products</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+            <!-- Cart button -->
+                <button class="cart-btn" id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+                
+                <!-- Cart container (hidden by default) -->
+                <div class="cart-container" id="cart-container">
+                  <div class="cart-content">
+                    <h1>Cart</h1>
+                    <table class="cart-table">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                          <th>Subtotal</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="cart-items">
+                        <!-- Cart items will be displayed here -->
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="3">Total:</th>
+                          <th id="total-cost">$0.00</th>
+                          <th>
+                            <button class="checkout-btn">Checkout</button>
+                          </th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <!-- Add a remove button to close the cart sidebar -->
+                    <button class="remove-btn" id="remove-btn">×</button>
+                  </div>
+                </div>
+                
+                <script>
+                  // Show cart container when cart button is clicked
+                  document.getElementById("cart-btn").addEventListener("click", () => {
+                    document.getElementById("cart-container").classList.toggle("show");
+                  });
+                
+                  // Close cart container when remove button is clicked
+                  document.getElementById("remove-btn").addEventListener("click", () => {
+                    document.getElementById("cart-container").classList.remove("show");
+                  });
+                </script>
+                <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="Menu" class="menu-icon" onclick="menutoggle()" />
+            </div>
+            <!-- Products Page -->
+            <div class="products-page">
+                <h1>Inside the closet</h1>
+                <div class="products-container">
+                    <!-- Product 1 -->
+                    <div class="product">
+                        <img src="../images/hooodie vision.jpg" alt="Product 1">
+                        <div class="product-info">
+                            <h2>Invision Hoodie</h2>
+                            <p>its a invasion machadndise designed with elegant display of intel</p>
+                            <div class="product-pricing">
+                                <p>Price: $19.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 10</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product">
+                        <img src="../images/longsleeve.jpg" alt="Product 2">
+                        <div class="product-info">
+                            <h2>Longsleeve</h2>
+                            <p></p>
+                            <div class="product-pricing">
+                                <p>Price: $29.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 5</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product">
+                        <img src="../images/tee.jpg" alt="Product 3">
+                        <div class="product-info">
+                            <h2>Shirt</h2>
+                            <p>A comfortable and stylish shirt for everyday wear</p>
+                            <div class="product-pricing">
+                                <p>Price: $14.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 15</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product">
+                        <img src="../images/hat.jpg" alt="Product 4">
+                        <div class="product-info">
+                            <h2>Hat</h2>
+                            <p>A stylish and comfortable hat for any occasion</p>
+                            <div class="product-pricing">
+                                <p>Price: $9.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 20</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product">
+                        <img src="../images/summertides.jpg" alt="Product 5">
+                        <div class="product-info">
+                            <h2>Trousers</h2>
+                            <p>Comfortable and stylish trousers for everyday wear</p>
+                            <div class="product-pricing">
+                                <p>Price: $24.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 12</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product">
+                        <img src="../images/hoodie.jpg" alt="Product 6">
+                        <div class="product-info">
+                            <h2>Hoodie 2</h2>
+                            <p>A stylish and comfortable hoodie for casual wear</p>
+                            <div class="product-pricing">
+                                <p>Price: $19.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 8</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product">
+                        <img src="../images/hooodie vision.jpg" alt="Product 7">
+                        <div class="product-info">
+                            <h2>Hoodie 3</h2>
+                            <p>A fashionable and cozy hoodie for everyday wear</p>
+                            <div class="product-pricing">
+                                <p>Price: $22.99</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option">
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="small">Small</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                <div class="option">
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="number" id="quantity" value="1">
+                                </div>
+                                <p>Items remaining: 6</p>
+                            </div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Add more products here -->
+                </div>
+            </div>
+            <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                
+                <div class="footer-col-2">
+                    <img src="../images/logo-color.png" alt="clo.set" />
+                    <p>Our purpose is to sustainably make the pleasure and benefits of designer clothes accessible to many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        
+                        <li><a href="https://www.instagram.com/clo.set_r/">instagram</a></li>
+                     
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <p class="copyright">© 2023 clo.set</p>
+        </div>
+    </div>
+    <script src="../index.js"></script>
+</body>
+
+</html>

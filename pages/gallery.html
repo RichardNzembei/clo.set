@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="../index.css">
+    <script src="../index.js"></script>
+    <style>
+        .art-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 -10px;
+}
+
+.art-item {
+  flex-basis: calc(33.333% - 20px);
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.art-item p {
+  font-size: 14px;
+  margin: 10px;
+  color: #666;
+}
+    </style>
+</head>
+<body>
+       <!-- Header Section -->
+       <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html"><img src="../images/logo-color.png" alt="clo.set" width="125px" /></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./products.html">Products</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+                      
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+ <!-- Cart button -->
+ <button class="cart-btn" id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+                
+ <!-- Cart container (hidden by default) -->
+ <div class="cart-container" id="cart-container">
+   <div class="cart-content">
+     <h1>Cart</h1>
+     <table class="cart-table">
+       <thead>
+         <tr>
+           <th>Item</th>
+           <th>Quantity</th>
+           <th>Price</th>
+           <th>Subtotal</th>
+           <th>Action</th>
+         </tr>
+       </thead>
+       <tbody id="cart-items">
+         <!-- Cart items will be displayed here -->
+       </tbody>
+       <tfoot>
+         <tr>
+           <th colspan="3">Total:</th>
+           <th id="total-cost">$0.00</th>
+           <th>
+             <button class="checkout-btn">Checkout</button>
+           </th>
+         </tr>
+       </tfoot>
+     </table>
+     <!-- Add a remove button to close the cart sidebar -->
+     <button class="remove-btn" id="remove-btn">×</button>
+   </div>
+ </div>
+ 
+ <script>
+   // Show cart container when cart button is clicked
+   document.getElementById("cart-btn").addEventListener("click", () => {
+     document.getElementById("cart-container").classList.toggle("show");
+   });
+ 
+   // Close cart container when remove button is clicked
+   document.getElementById("remove-btn").addEventListener("click", () => {
+     document.getElementById("cart-container").classList.remove("show");
+   });
+ </script>
+                <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="Menu" class="menu-icon" onclick="menutoggle()" />
+            </div>
+            <div class="art-gallery">
+                <div class="art-item">
+                  <img src="../images/gallery/burn1.jpeg" alt="Art 1">
+                  <p>Art 1: "Sunset" - A beautiful sunset painting with warm colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/fade1.jpeg" alt="Art 2">
+                  <p>Art 2: "Cityscape" - A modern cityscape painting with bold lines and colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/fade2.jpeg" alt="Art 3">
+                  <p>Art 3: "Flowers" - A vibrant flower painting with delicate petals and colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/lost1.jpeg" alt="Art 4">
+                  <p>Art 4: "Landscape" - A serene landscape painting with rolling hills and trees.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/lost2.jpeg" alt="Art 5">
+                  <p>Art 5: "Abstract" - A unique abstract painting with bold colors and textures.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/lost3.jpeg" alt="Art 6">
+                  <p>Art 6: "Portrait" - A stunning portrait painting with intricate details and colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/withme1.jpeg" alt="Art 7">
+                  <p>Art 7: "Still Life" - A beautiful still life painting with vibrant colors and textures.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/us.jpg" alt="Art 8">
+                  <p>Art 8: "Seascape" - A breathtaking seascape painting with crashing waves and colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/style.jpeg" alt="Art 9">
+                  <p>Art 9: "Fantasy" - A whimsical fantasy painting with magical creatures and colors.</p>
+                </div>
+                <div class="art-item">
+                  <img src="../images/gallery/us3.jpeg" alt="Art 10">
+                  <p>Art 10: "Pop Art" - A bold pop art painting with bright colors and graphic shapes.</p>
+                </div>
+              </div>
+    
+</body>
+</html>
